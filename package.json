@@ -1,0 +1,28 @@
+{
+  "name": "hyd_auction_service",
+  "version": "1.0.0",
+  "description": "backend service for hyd aution",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "author": "ashutosh.sharma",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^8.0.0",
+    "@fastify/static": "^6.0.0",
+    "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
+    "fastify": "^4.29.1",
+    "fastify-cookie": "^4.0.0",
+    "fastify-multer": "^2.0.3",
+    "mongodb": "^5.7.0",
+    "mongodb-memory-server": "^8.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "type": "module",
+  "packageManager": "yarn@4.9.4"
+}
