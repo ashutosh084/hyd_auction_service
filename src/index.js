@@ -47,40 +47,22 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-// Connect to embedded MongoDB before starting server
-if (process.env.NODE_ENV !== 'production') {
-  connectDatabase()
-    .then(() => {
-      // Register routes
-      registerRoutes(fastify);
-
-      // Start the server
-
-      fastify.listen({ port: 9090 }, (err, address) => {
-        if (err) {
-          console.error(err);
-          process.exit(1);
-        }
-        console.log(`Server running at ${address}`);
-      });
-    })
-    .catch((err) => {
-      console.error("Failed to connect to MongoDB", err);
-      process.exit(1);
-    });
-}
-
-// Do not listen here, just export a ready-to-use app
-const startApp = async () => {
-  try {
-    await connectDatabase();
+connectDatabase()
+  .then(() => {
+    // Register routes
     registerRoutes(fastify);
-    await fastify.ready();
-    return fastify;
-  } catch (err) {
-    console.error("Failed to start app", err);
-    throw err;
-  }
-};
 
-export default startApp;
+    // Start the server
+
+    fastify.listen({ port: 9090 }, (err, address) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      console.log(`Server running at ${address}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to connect to MongoDB", err);
+    process.exit(1);
+  });

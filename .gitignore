@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 # everything inside  .mongo-data/ but include the folder itself
 .mongo-data/
+.vercel
